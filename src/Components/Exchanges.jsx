@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { server } from '../index'
-import { Container } from '@chakra-ui/react';
+import { Container, HStack } from '@chakra-ui/react';
 import Loader from './Loader';
 
 const Exchanges = () => {
@@ -14,8 +14,8 @@ const Exchanges = () => {
     const fetchExchanges = async()=>{
       const data = await axios.get(`${server}/exchanges?page=3`);
       setExchanges(data);
-      console.log(data);
       setLoading(false);
+      console.log(data);
     };
      fetchExchanges();
   },[])
@@ -25,7 +25,13 @@ const Exchanges = () => {
     <Container maxW={'container.xl'} >
       {
       loading? <Loader/> : <>
-        <
+        <HStack>
+          {
+            exchanges.map((i)=>(
+              <div>{i.name}</div>
+            ))
+          }
+        </HStack>
       </> 
       }
     </Container>
