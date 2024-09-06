@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { server } from '../index'
-import { Button, Container, Heading, HStack, Image, Radio, RadioGroup, Text, VStack } from '@chakra-ui/react';
+import { Button, Container, HStack, Radio, RadioGroup } from '@chakra-ui/react';
 import Loader from './Loader';
 import ErrorComponent from './ErrorComponent';
 import CoinCard from './CoinCard';
@@ -55,7 +55,7 @@ const Coins = () => {
       </HStack>
     </RadioGroup>
 
-     <HStack wrap={'wrap'} >
+     <HStack wrap={'wrap'} justifyContent={'space-evenly'} >
       {coins.map((i)=>(
       <CoinCard id={i.id}  name={i.name} price={i.current_price} img={i.image} symbol={i.symbol} currencySymbol={currencySymbol} />
       ))}
@@ -65,6 +65,7 @@ const Coins = () => {
        {
         btns.map((item,index)=>(
           <Button 
+          key={index}
           bgColor={'blackAlpha.900'}
           color={'white'}
           onClick={()=>changePage(index+1)}
