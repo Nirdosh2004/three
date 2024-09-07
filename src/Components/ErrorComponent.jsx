@@ -1,13 +1,20 @@
-import { Alert, AlertIcon } from '@chakra-ui/react'
-import React from 'react'
+import { Alert, AlertIcon } from "@chakra-ui/react";
+import React from "react";
 
-const ErrorComponent = ({message}) => {
+const ErrorComponent = ({ message }) => {
   return (
-    <Alert status='error' position={'fixed'} bottom={'4'} left={'50%'} transform={'translateY(-50%)'}  w={'container.lg'} >
-      <AlertIcon  />
+    <Alert
+      status="error"
+      position={"fixed"}
+      bottom={"4"}
+      left={"50%"}
+      transform={"translateX(-50%)"}
+      w={"container.lg"}
+    >
+      <AlertIcon />
       {message}
     </Alert>
-  )
-}
+  );
+};
 
-export default ErrorComponent
+export default ErrorComponent;
